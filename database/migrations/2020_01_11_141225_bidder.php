@@ -13,13 +13,19 @@ class Bidder extends Migration
      */
     public function up()
     {
-        Schema::create('books', function (Blueprint $table) {
-            $table->increments('id'); //รหัสหนังสือ
-            $table->string('title'); //ชือหนังสือ
-            $table->decimal('price',10,2); //ราคา
-            $table->integer('typebooks_id')->unsigned();
-            $table->foreign('typebooks_id')->references('id')->on('typebooks');
-            $table->string('image'); //เก็บชือภาพหนังสือ
+        Schema::create('bidder', function (Blueprint $table) {
+            $table->increments('b_id'); //รหัสผู้ประมูล
+            $table->string('b_per'); //คำนำหน้า
+            $table->string('b_name'); //ชื่อ
+            $table->string('b_address');
+            // $table->foreign('typebooks_id')->references('id')->on('typebooks');
+            $table->string('b_tel'); //เบอร์โทร
+            $table->string('b_account'); //	เลขบัญชี
+            $table->string('b_bank'); // ธนาคาร
+            $table->string('b_usename'); //	id
+            $table->string('b_pass'); // รหัสผ่าน
+
+
             $table->timestamps();
             });    }
 

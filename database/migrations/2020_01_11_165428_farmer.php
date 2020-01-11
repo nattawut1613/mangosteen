@@ -13,7 +13,20 @@ class Farmer extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('farmer', function (Blueprint $table) {
+            $table->increments('far_id'); //รหัสเกษตรกร
+            $table->string('far_name'); //ชื่อเกษตรกร
+            $table->string('far_address'); //ที่อยู่ของเกษตรกร
+            $table->string('far_tel');//เบอร์โทร
+            // $table->foreign('typebooks_id')->references('id')->on('typebooks');
+            $table->string('far_account'); //เลขบัญชี
+            $table->string('far_bank'); // ธนาคาร
+            $table->string('far_user'); //	id
+            $table->string('far_pass'); // รหัสผ่าน
+
+
+            $table->timestamps();
+            });    
     }
 
     /**
