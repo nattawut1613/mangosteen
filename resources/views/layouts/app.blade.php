@@ -56,7 +56,7 @@
                     
                         @else
                              <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/about') }}">{{ __('รายละเอียด') }}</a>
+                                <a class="nav-link" href="{{ url('/test') }}">{{ __('รายละเอียด') }}</a>
                             </li>
                             
                             <li class="nav-item dropdown">

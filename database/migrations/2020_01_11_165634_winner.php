@@ -15,10 +15,10 @@ class Winner extends Migration
     {
         Schema::create('winner', function (Blueprint $table) {
             $table->increments('win_id'); //รหัสการสรุปราคา
-            $table->integer('b_id')->unsigned();
-            $table->foreign('b_id')->references('id')->on('bidder');
-            $table->integer('mang_id')->unsigned();
-            $table->foreign('mang_id')->references('id')->on('mangosteen');
+            // $table->integer('b_id')->unsigned();
+            // $table->foreign('b_id')->references('id')->on('bidder');
+            // $table->integer('mang_id')->unsigned();
+            // $table->foreign('mang_id')->references('id')->on('mangosteen');
             
             
             $table->decimal('win_price',6,2);//ราคา

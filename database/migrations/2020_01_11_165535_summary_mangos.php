@@ -16,9 +16,9 @@ class SummaryMangos extends Migration
         Schema::create('summary_mangos', function (Blueprint $table) {
             $table->increments('sum_id'); //รหัสการสรุปราคา
             $table->integer('far_id')->unsigned();
-            $table->foreign('far_id')->references('id')->on('farmer');
-            $table->integer('mang_id')->unsigned();
-            $table->foreign('mang_id')->references('id')->on('mangosteen');
+            // $table->foreign('far_id')->references('id')->on('farmer');
+            // $table->integer('mang_id')->unsigned();
+            // $table->foreign('mang_id')->references('id')->on('mangosteen');
             $table->string('sum_box'); //ลัง
             $table->decimal('sum_weight',6,2); //น้ำหนัก
             $table->string('sum_around'); //รอบ

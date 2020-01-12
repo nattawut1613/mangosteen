@@ -15,12 +15,12 @@ class SendMangos extends Migration
     {
         Schema::create('send', function (Blueprint $table) {
             $table->increments('send_id'); //รหัสการส่ง
-            $table->integer('sum_id')->unsigned();
-            $table->foreign('sum_id')->references('id')->on('summary_mangos ');
-            $table->integer('far_id')->unsigned();
-            $table->foreign('far_id')->references('id')->on('farmer');
-            $table->integer('mang_id')->unsigned();
-            $table->foreign('mang_id')->references('id')->on('mangosteen');
+            // $table->integer('sum_id')->unsigned();
+            // $table->foreign('sum_id')->references('id')->on('summary_mangos ');
+            // $table->integer('far_id')->unsigned();
+            // $table->foreign('far_id')->references('id')->on('farmer');
+            // $table->integer('mang_id')->unsigned();
+            // $table->foreign('mang_id')->references('id')->on('mangosteen');
             
             
             $table->decimal('send_weight',6,2);//ราคา
