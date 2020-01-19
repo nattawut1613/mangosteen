@@ -47,7 +47,7 @@
 
                         <div class="form-group row">
                             <label for="username" class="col-md-4 col-form-label text-md-right">
-                                {{ __('ไอดี') }}
+                                {{ __('รหัสผู้ใช้') }}
                             </label>
 
                             <div class="col-md-6">

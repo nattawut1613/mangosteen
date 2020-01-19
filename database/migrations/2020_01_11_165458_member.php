@@ -18,7 +18,7 @@ class Member extends Migration
             $table->string('m_Password'); //ชื่อไซส์มังคุด
             $table->string('m_Name'); //ชื่อผู้ใช้
             $table->string('m_status');//สถานะ
-            // $table->foreign('typebooks_id')->references('id')->on('typebooks');
+            // $table->foreign('far_id')->references('id')->on('farmer');
 
 
             $table->timestamps();

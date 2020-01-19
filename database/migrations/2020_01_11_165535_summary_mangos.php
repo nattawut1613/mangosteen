@@ -15,7 +15,7 @@ class SummaryMangos extends Migration
     {
         Schema::create('summary_mangos', function (Blueprint $table) {
             $table->increments('sum_id'); //รหัสการสรุปราคา
-            $table->integer('far_id')->unsigned();
+            $table->unsignedBigInteger(far_id);
             // $table->foreign('far_id')->references('id')->on('farmer');
             // $table->integer('mang_id')->unsigned();
             // $table->foreign('mang_id')->references('id')->on('mangosteen');
@@ -25,7 +25,10 @@ class SummaryMangos extends Migration
             $table->date('sum_date'); //;date
 
 
-            $table->timestamps();
+            $table->foreign('farid')
+            ->references('far_id')
+            ->on('farmer')
+            ->onDelete('cascade');
             });
     }
 
