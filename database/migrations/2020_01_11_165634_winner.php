@@ -20,13 +20,18 @@ class Winner extends Migration
             // $table->integer('mang_id')->unsigned();
             // $table->foreign('mang_id')->references('id')->on('mangosteen');
             
-            
+            $table->integer('mang_id')->unsigned();
             $table->decimal('win_price',6,2);//ราคา
             $table->string('win_around'); //รอบ
             $table->string('win_amount'); //จำนวน
             $table->string('win_result'); //ผลประมูล
             $table->date('win_date'); //;date
 
+
+
+            $table->foreign('mang_id')
+            ->references('id')->on('bidder')
+            ->onDelete('cascade');
 
             $table->timestamps();
             });
@@ -39,6 +44,11 @@ class Winner extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('winner', function($table)
+        {
+            Schema::drop('winner');
+            $table->dropForeign('winner_b_id_foreign');
+            
+        });
     }
 }

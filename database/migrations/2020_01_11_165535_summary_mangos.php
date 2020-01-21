@@ -17,6 +17,7 @@ class SummaryMangos extends Migration
             $table->increments('id'); //รหัสการสรุปราคา
            
             $table->integer('far_id')->unsigned();
+            $table->integer('mang_id')->unsigned();
             $table->string('sum_box'); //ลัง
             $table->decimal('sum_weight',6,2); //น้ำหนัก
             $table->string('sum_around'); //รอบ
@@ -25,7 +26,10 @@ class SummaryMangos extends Migration
             $table->foreign('far_id')
                 ->references('id')->on('farmer')
                 ->onDelete('cascade');
-            
+
+                $table->foreign('mang_id')
+                ->references('id')->on('mangosteen')
+                ->onDelete('cascade');
             
             });
     }
@@ -41,8 +45,11 @@ class SummaryMangos extends Migration
         {
             Schema::drop('summary_mangos');
             $table->dropForeign('summary_mangos_far_id_foreign');
+            $table->dropForeign('mangosteen_mang_id_foreign');
             
         });
+
+        
         
     }
 }
