@@ -14,7 +14,7 @@ class Farmer extends Migration
     public function up()
     {
         Schema::create('farmer', function (Blueprint $table) {
-            $table->increments('far_id'); //รหัสเกษตรกร
+            $table->increments('id'); //รหัสเกษตรกร
             $table->string('far_name'); //ชื่อเกษตรกร
             $table->string('far_address'); //ที่อยู่ของเกษตรกร
             $table->string('far_tel');//เบอร์โทร

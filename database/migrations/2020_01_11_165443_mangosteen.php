@@ -14,7 +14,7 @@ class Mangosteen extends Migration
     public function up()
     {
         Schema::create('mangosteen', function (Blueprint $table) {
-            $table->increments('mang_id'); //รหัสไซส์มังคุด
+            $table->increments('id'); //รหัสไซส์มังคุด
             $table->string('mang_size'); //ชื่อไซส์มังคุด
             $table->string('mang_attribute'); //ลักษณะมังคุด
             $table->string('mang_status');//สถานะ

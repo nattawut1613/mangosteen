@@ -14,7 +14,7 @@ class Bidder extends Migration
     public function up()
     {
         Schema::create('bidder', function (Blueprint $table) {
-            $table->increments('b_id'); //รหัสผู้ประมูล
+            $table->increments('id'); //รหัสผู้ประมูล
             $table->string('b_per'); //คำนำหน้า
             $table->string('b_name'); //ชื่อ
             $table->string('b_address');
