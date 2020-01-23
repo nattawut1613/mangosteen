@@ -35,8 +35,7 @@
                                 <td>{{ $farmer->far_bank }}</td> 
                                 <td>{{ $farmer->far_user }}</td> 
                                 <td>{{ $farmer->far_pass }}</td>
-                                <td>{{ $farmer->created_at }}</td>
-                                <td>{{ $farmer->updated_a }}</td>
+                                
                                 <td><a href="{{ url('/farmer/destroy/'.$farmer->id)  }}">แก้ไข</a></td>
                                 
 
