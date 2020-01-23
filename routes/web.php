@@ -17,6 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/farmer', 'farmerController@index')->name('farmer');
+Route::get('/farmer/destroy/{id}','farmerController@destroy');
+
 Auth::routes();
 
 
