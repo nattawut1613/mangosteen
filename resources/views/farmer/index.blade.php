@@ -36,16 +36,18 @@
                                 <td>{{ $farmer->far_user }}</td> 
                                 <td>{{ $farmer->far_pass }}</td>
                                 
-                                <td><a href="{{ url('/farmer/destroy/'.$farmer->id)  }}">แก้ไข</a></td>
+                                <td>
+                                    <a href="{{ url('/farmer/'.$farmer->id.'/edit') }}">แก้ไข</a>
+                                </td>
                                 
 
                             </tr>                        
                         @endforeach                    
                              </table> 
 
-                             <main class="py-4">
-                                @yield('content')
-                            </main>
+                             <br>
+                                {!! $farmer->render() !!}
+                            </div>
  
                 </div>             
             </div>         

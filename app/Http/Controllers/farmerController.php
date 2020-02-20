@@ -22,4 +22,9 @@ class farmerController extends Controller
             farmer::destroy($id);        
              return back();     
             }
+            public function edit($id)
+                    {
+                 $farmer = Farmer::findOrFail($id);
+                        return view('farmer.edit', ['farmer' => $farmer]);
+                    }
 }
