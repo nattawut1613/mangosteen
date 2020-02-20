@@ -45,9 +45,7 @@
                         @endforeach                    
                              </table> 
 
-                             <br>
-                                {!! $farmer->render() !!}
-                            </div>
+                             
  
                 </div>             
             </div>         
