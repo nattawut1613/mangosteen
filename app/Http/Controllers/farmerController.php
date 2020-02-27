@@ -25,7 +25,31 @@ class farmerController extends Controller
             }
             public function edit($id)
                     {
-                 $farmer = Farmer::findOrFail($id);
-                        return view('farmers.edit', ['farmer' => $farmer]);
+                        $farmer = Farmer::find($id);
+
+                        return view('farmers.edit', compact('farmer'));
                     }
+
+         public function update(Request $request, $id)
+          {
+                          $request->validate([
+                            'far_name'=>'required',
+                            'far_address'=> 'required',
+                            'far_tel' => 'required',
+                            'far_account' => 'required',
+                            'far_bank' => 'required',
+                            
+                          ]);
+                    
+                          $farmer = Farmer::find($id);
+                          $farmer->far_name = $request->get('far_name');
+                          $farmer->far_address = $request->get('far_address');
+                          $farmer->far_tel = $request->get('far_tel');
+                          $farmer->far_account = $request->get('far_account');
+                          $farmer->far_bank = $request->get('far_bank');
+                        
+                          $farmer->save();
+                    
+                          return redirect('/farmers')->with('success', 'famer has been updated');
+        }
 }
