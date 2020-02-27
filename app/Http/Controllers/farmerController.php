@@ -8,10 +8,10 @@ use App\farmer;//นําเอาโมเดล farmer เข้ามาใ�
 class farmerController extends Controller
 {
     public function index() {        
-         $farmer = farmer::all(); 
+         $farmer = Farmer::all(); 
           //$farmer = farmer::orderBy('id','desc')->get();     
 
-          $count = farmer::count(); //นบัจํานวนแถวทงัหมด 
+          $count = Farmer::count(); //นบัจํานวนแถวทงัหมด 
           return view('farmer.index', [ 
             'farmer' => $farmer, 
             'count' => $count 
@@ -19,7 +19,7 @@ class farmerController extends Controller
         } 
         public function destroy($id) {         
             //farmer::find($id)->delete();         
-            farmer::destroy($id);        
+            Farmer::destroy($id);        
              return back();     
             }
             public function edit($id)

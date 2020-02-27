@@ -25,7 +25,8 @@
                             <th>รหัสผ่าน</th>
                             <th>แก้ไขข้อมูล</th>
                         </tr>                        
-                         @foreach ($farmer as $farmer)                        
+                         @foreach ($farmer as $farmer)   
+                                                
                           <tr>                            
                                <td>{{ $farmer->id }}</td>                            
                                 <td>{{ $farmer->far_name }}</td> 
