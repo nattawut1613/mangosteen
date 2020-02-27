@@ -42,9 +42,15 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="farmer">
+        <a class="nav-link" href="farmers">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>ข้อมูลส่วนตัว</span></a>
+      </li>
+      
+      <li class="nav-item active">
+        <a class="nav-link" href="bidders">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>ข้อมูลประมูล</span></a>
       </li>
 
       <!-- Divider -->

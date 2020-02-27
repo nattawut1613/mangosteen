@@ -8,15 +8,16 @@ use App\farmer;//นําเอาโมเดล farmer เข้ามาใ�
 class farmerController extends Controller
 {
     public function index() {        
-         $farmer = Farmer::all(); 
-          //$farmer = farmer::orderBy('id','desc')->get();     
+        //  $farmer = Farmer::all(); 
+          $farmer = Farmer::orderBy('id','desc')->get();     
 
           $count = Farmer::count(); //นบัจํานวนแถวทงัหมด 
           return view('farmers.index', [ 
-            'farmer' => $farmer, 
+            'farmers' => $farmer, 
             'count' => $count 
             ]); // สง่ไปที views โฟลเดอร์ typebooks ไฟล์ index.blade.php 
         } 
+        
         public function destroy($id) {         
             //farmer::find($id)->delete();         
             Farmer::destroy($id);        
