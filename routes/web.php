@@ -17,14 +17,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/farmesr', 'FarmerController@index')->name('farmers');
+Route::get('/farmers', 'FarmerController@index')->name('farmers');
 Route::get('/farmers/destroy/{id}','FarmerController@destroy');
 
 Route::resource('/farmers','FarmerController')->name('index','farmers');
 
 Route::get('/bidders', 'BidderController@index')->name('bidders');
 
-Route::resource('/bidders','BidderController')->name('index','bidders');
+Route::get('bidders','BidderController@index'); 
+
 Auth::routes();
 
 

@@ -1,13 +1,14 @@
 
 @extends('layouts.master') 
 
- 
+@section('css')
+@endsection
 @section('content') 
 
 
     <div class="container">     
-        <div class="row">        
-             <div class="col-md-10 col-md-offset-1">             
+       
+                        
                             
                     <div class="panel-heading">แสดงข้อมลูส่วนตัว  </div> 
  
@@ -28,8 +29,12 @@
                          @foreach ($farmers as $farmer)   
                                                 
                           <tr>                            
-                               <td>{{ $farmer->id }}</td>                            
-                                <td>{{ $farmer->far_name }}</td> 
+                               <td>{{ $farmer->id }}</td>
+                               @if( $farmer->id == null || $farmer->id == '' )                            
+                                    <td>{{ Auth::user()->name }}</td> 
+                                @else
+                                    <td>{{ $farmer->far_name }}</td> 
+                                @endif
                                 <td>{{ $farmer->far_address }}</td> 
                                 <td>{{ $farmer->far_tel }}</td> 
                                 <td>{{ $farmer->far_account }}</td> 
@@ -59,3 +64,5 @@
 
  @endsection 
 
+ @section('js')
+@endsection

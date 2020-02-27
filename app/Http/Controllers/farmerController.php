@@ -9,7 +9,7 @@ class farmerController extends Controller
 {
     public function index() {        
         //  $farmer = Farmer::all(); 
-          $farmer = Farmer::orderBy('id','desc')->get();     
+          $farmer = Farmer::get();   
 
           $count = Farmer::count(); //นบัจํานวนแถวทงัหมด 
           return view('farmers.index', [ 

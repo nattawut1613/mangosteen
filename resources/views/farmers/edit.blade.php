@@ -30,25 +30,26 @@
         @csrf
         <div class="form-group">
           <label for="name">ชื่อเกษตรกร:</label>
-          <input type="text" class="form-control" name="far_name" style="  width: 426px;  height: 38px; " value={{ $farmer->far_name }} />
+          
+          <input type="text" class="form-control" name="far_name" style="  width: 426px;  height: 38px; " value="{{ $farmer->far_name }}" />
         </div>
         <div class="form-group">
           <label for="price">ที่อยู่ :</label>
-          <input type="text" class="form-control" name="far_address" style="  width: 426px;  height: 38px; " value={{ $farmer->far_address }} />
+          <input type="text" class="form-control" name="far_address" style="  width: 426px;  height: 38px; " value="{{ $farmer->far_address }}" />
         </div>
         <div class="form-group">
           <label for="quantity">เบอร์โทร:</label>
-          <input type="text" class="form-control" name="far_tel" style="  width: 426px;  height: 38px; " value={{ $farmer->far_tel }} />
+          <input type="text" class="form-control" name="far_tel" style="  width: 426px;  height: 38px; " value="{{ $farmer->far_tel }}" />
         </div>
 
         <div class="form-group">
           <label for="quantity">เลขบัญชี:</label>
-          <input type="text" class="form-control" name="far_account" style="  width: 426px;  height: 38px; " value={{ $farmer->far_account }} />
+          <input type="text" class="form-control" name="far_account" style="  width: 426px;  height: 38px; " value="{{ $farmer->far_account }}" />
         </div>
 
         <div class="form-group">
           <label for="quantity">ธนาคาร:</label>
-          <input type="text" class="form-control" name="far_bank" style="  width: 426px;  height: 38px; " value={{ $farmer->far_bank }} />
+          <input type="text" class="form-control" name="far_bank" style="  width: 426px;  height: 38px; " value="{{ $farmer->far_bank }}" />
         </div>
 
         <button type="submit" class="btn btn-primary">Update</button>
