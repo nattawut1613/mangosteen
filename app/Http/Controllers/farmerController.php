@@ -12,7 +12,7 @@ class farmerController extends Controller
           //$farmer = farmer::orderBy('id','desc')->get();     
 
           $count = Farmer::count(); //นบัจํานวนแถวทงัหมด 
-          return view('farmer.index', [ 
+          return view('farmers.index', [ 
             'farmer' => $farmer, 
             'count' => $count 
             ]); // สง่ไปที views โฟลเดอร์ typebooks ไฟล์ index.blade.php 
@@ -25,6 +25,6 @@ class farmerController extends Controller
             public function edit($id)
                     {
                  $farmer = Farmer::findOrFail($id);
-                        return view('farmer.edit', ['farmer' => $farmer]);
+                        return view('farmers.edit', ['farmer' => $farmer]);
                     }
 }

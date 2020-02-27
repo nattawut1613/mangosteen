@@ -17,10 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/farmer', 'farmerController@index')->name('farmer');
-Route::get('/farmer/destroy/{id}','farmerController@destroy');
+Route::get('/farmesr', 'FarmerController@index')->name('farmers');
+Route::get('/farmers/destroy/{id}','FarmerController@destroy');
 
-Route::resource('/farmer','farmerController')->name('index','farmer');
+Route::resource('/farmers','FarmerController')->name('index','farmers');
 
 Auth::routes();
 

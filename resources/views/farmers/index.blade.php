@@ -38,7 +38,7 @@
                                 <td>{{ $farmer->far_pass }}</td>
                                 
                                 <td>
-                                    <a href="{{ url('/farmer/'.$farmer->id.'/edit') }}">แก้ไข</a>
+                                    <a href="{{ url('/farmers/'.$farmer->id.'/edit') }}">แก้ไข</a>
                                 </td>
                                 
 

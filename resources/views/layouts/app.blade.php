@@ -45,9 +45,7 @@
                         
                         @guest
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('farmer') }}">{{ __('ชื่อ') }}</a>
-                        </li>
+                       
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('เข้าสู่ระบบ') }}</a>
                             </li>
