@@ -136,9 +136,9 @@
                             </label>
 
                             <div class="col-md-6">
-                                <select id="cars" name="cars">
-                                    <option value="volvo">Volvo</option>
-                                    <option value="saab">Saab</option>
+                                <select  name="type">
+                                    <option value="farmer">เกรษตรกร</option>
+                                    <option value="bidder">ผู้ประมูล</option>
 
                                 @if ($errors->has('type'))
                                     <span class="invalid-feedback">

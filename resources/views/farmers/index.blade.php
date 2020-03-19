@@ -22,8 +22,7 @@
                             <th>เบอร์โทร</th> 
                             <th>เลขบัญชี</th>
                             <th>ธนาคาร</th>
-                            <th>ชื่อผู้ใช้</th>
-                            <th>รหัสผ่าน</th>
+
                             <th>แก้ไขข้อมูล</th>
                         </tr>                        
                          @foreach ($farmers as $farmer)   
@@ -33,14 +32,14 @@
                                @if( $farmer->id == null || $farmer->id == '' )                            
                                     <td>{{ Auth::user()->name }}</td> 
                                 @else
-                                    <td>{{ $farmer->far_name }}</td> 
+                                    <td>{{ $farmer->name }}</td> 
                                 @endif
-                                <td>{{ $farmer->far_address }}</td> 
-                                <td>{{ $farmer->far_tel }}</td> 
-                                <td>{{ $farmer->far_account }}</td> 
-                                <td>{{ $farmer->far_bank }}</td> 
-                                <td>{{ $farmer->far_user }}</td> 
-                                <td>{{ $farmer->far_pass }}</td>
+                                <td>{{ $farmer->address }}</td> 
+                                <td>{{ $farmer->tel }}</td> 
+                                <td>{{ $farmer->account }}</td> 
+                                <td>{{ $farmer->bank }}</td> 
+                                
+                                
                                 
                                 <td>
                                     <a href="{{ url('/farmers/'.$farmer->id.'/edit') }}">แก้ไข</a>
