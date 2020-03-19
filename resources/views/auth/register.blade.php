@@ -61,7 +61,7 @@
                                     </span>
                                 @endif
                             </div></div>
-                        
+
                         <div class="form-group row">
                             <label for="address" class="col-md-4 col-form-label text-md-right">
                                 {{ __('ที่อยู่') }}
@@ -136,9 +136,10 @@
                             </label>
 
                             <div class="col-md-6">
-                                <select  name="type">
+                                <select id="type" name="type">
                                     <option value="farmer">เกรษตรกร</option>
                                     <option value="bidder">ผู้ประมูล</option>
+                                </select>
 
                                 @if ($errors->has('type'))
                                     <span class="invalid-feedback">
@@ -147,9 +148,9 @@
                                 @endif
                             </div>
                         </div>
-                       
 
-                        
+
+
 
 
                         {{-- <div class="form-group row">
