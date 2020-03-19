@@ -25,6 +25,7 @@ Route::resource('/farmers','FarmerController')->name('index','farmers');
 Route::get('framers', 'FramerController@index');
 
 Route::get('bidders','BidderController@index');
+Route::get('/bidders/destroy/{id}','BidderController@destroy');
 
 Auth::routes();
 

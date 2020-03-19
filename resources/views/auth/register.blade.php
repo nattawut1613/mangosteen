@@ -10,6 +10,23 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
+                        <div class="form-group row">
+                            <label for="type" class="col-md-4 col-form-label text-md-right">
+                                {{ __('อาชีพ') }}
+                            </label>
+
+                            <div class="col-md-6">
+                                <select  name="type">
+                                    <option value="farmer">เกรษตรกร</option>
+                                    <option value="bidder">ผู้ประมูล</option>
+                                </select>
+                                @if ($errors->has('type'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('type') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">
@@ -44,23 +61,8 @@
                                 @enderror
                             </div>
                         </div>
-
-                        <div class="form-group row">
-                            <label for="username" class="col-md-4 col-form-label text-md-right">
-                                {{ __('รหัสผู้ใช้') }}
-                            </label>
-
-                            <div class="col-md-6">
-                                <input id="username" type="text"
-                                       class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}"
-                                       name="username" value="{{ old('username') }}" required>
-
-                                @if ($errors->has('username'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('username') }}</strong>
-                                    </span>
-                                @endif
-                            </div></div>
+                        
+                        
                         
                         <div class="form-group row">
                             <label for="address" class="col-md-4 col-form-label text-md-right">
@@ -98,7 +100,7 @@
                         </div>
                         <div class="form-group row">
                             <label for="account" class="col-md-4 col-form-label text-md-right">
-                                {{ __('ชื่อบัญชี') }}
+                                {{ __('บัญชีธนาคาร') }}
                             </label>
 
                             <div class="col-md-6">
@@ -131,22 +133,22 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="type" class="col-md-4 col-form-label text-md-right">
-                                {{ __('อาชีพ') }}
+                            <label for="username" class="col-md-4 col-form-label text-md-right">
+                                {{ __('รหัสผู้ใช้') }}
                             </label>
 
                             <div class="col-md-6">
-                                <select  name="type">
-                                    <option value="farmer">เกรษตรกร</option>
-                                    <option value="bidder">ผู้ประมูล</option>
+                                <input id="username" type="text"
+                                       class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}"
+                                       name="username" value="{{ old('username') }}" required>
 
-                                @if ($errors->has('type'))
+                                @if ($errors->has('username'))
                                     <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('type') }}</strong>
+                                        <strong>{{ $errors->first('username') }}</strong>
                                     </span>
                                 @endif
-                            </div>
-                        </div>
+                            </div></div>
+                       
                        
 
                         
