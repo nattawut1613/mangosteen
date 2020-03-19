@@ -130,6 +130,24 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="type" class="col-md-4 col-form-label text-md-right">
+                                {{ __('อาชีพ') }}
+                            </label>
+
+                            <div class="col-md-6">
+                                <select id="cars" name="cars">
+                                    <option value="volvo">Volvo</option>
+                                    <option value="saab">Saab</option>
+
+                                @if ($errors->has('type'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('type') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                       
 
                         
 
