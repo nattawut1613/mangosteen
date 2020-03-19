@@ -14,12 +14,12 @@ class Winner extends Migration
     public function up()
     {
         Schema::create('winner', function (Blueprint $table) {
-            $table->increments('win_id'); //รหัสการสรุปราคา
+            $table->increments('id'); //รหัสการสรุปราคา
             // $table->integer('b_id')->unsigned();
             // $table->foreign('b_id')->references('id')->on('bidder');
             // $table->integer('mang_id')->unsigned();
             // $table->foreign('mang_id')->references('id')->on('mangosteen');
-            
+
             $table->integer('mang_id')->unsigned();
             $table->decimal('win_price',6,2);//ราคา
             $table->string('win_around'); //รอบ
@@ -30,7 +30,7 @@ class Winner extends Migration
 
 
             $table->foreign('mang_id')
-            ->references('id')->on('bidder')
+            ->references('id')->on('mangosteen')
             ->onDelete('cascade');
 
             $table->timestamps();
@@ -47,8 +47,8 @@ class Winner extends Migration
         Schema::table('winner', function($table)
         {
             Schema::drop('winner');
-            $table->dropForeign('winner_b_id_foreign');
-            
+            $table->dropForeign('winner_create_user_foreign');
+
         });
     }
 }

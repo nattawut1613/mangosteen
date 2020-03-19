@@ -22,7 +22,7 @@ class Mangosteen extends Migration
 
 
             $table->timestamps();
-            });    
+            });
     }
 
     /**
@@ -32,6 +32,6 @@ class Mangosteen extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('mangosteen');
     }
 }

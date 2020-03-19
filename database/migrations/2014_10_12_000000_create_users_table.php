@@ -14,14 +14,22 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name'); //ชื่อจริง
-            $table->string('lastname'); //นามสกุล
-            $table->string('username'); //ไอดี
-            // $table->string('email')->unique();
-            // $table->timestamp('email_verified_at')->nullable();
-            $table->string('password'); //รหัสผ่าน
+            $table->increments('id'); //รหัสผู้ประมูล
+            $table->string('per')->nullable(); //คำนำหน้า
+            $table->string('name'); //ชื่อ
+            $table->string('lastname');
+            $table->string('address')->nullable();
+            // $table->foreign('typebooks_id')->references('id')->on('typebooks');
+            $table->string('tel')->nullable(); //เบอร์โทร
+            $table->string('account')->nullable(); //	เลขบัญชี
+            $table->string('bank')->nullable(); // ธนาคาร
+            $table->string('username'); //	id
+            $table->string('password'); // รหัสผ่าน
             $table->rememberToken();
+            $table->string('type'); // ประเภท
+
+
+
             $table->timestamps();
         });
     }

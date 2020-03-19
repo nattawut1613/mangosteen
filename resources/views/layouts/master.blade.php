@@ -39,24 +39,24 @@
 
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
-      @if( Auth::user()->status == "farmer" )
+      @if( Auth::user()->type == "farmer" )
       <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
           <a class="nav-link" href="farmers">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>ข้อมูลส่วนตัว</span></a>
+            <span>ฟาม</span></a>
         </li>
-      @elseif( Auth::user()->status == "bidder" )
+      @elseif( Auth::user()->type == "bidder" )
         <li class="nav-item active">
           <a class="nav-link" href="bidders">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>ข้อมูลประมูล</span></a>
+            <span>ประมูล</span></a>
         </li>
       @else
         <li class="nav-item active">
           <a class="nav-link" href="farmers">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>ข้อมูลส่วนตัว</span></a>
+            <span>มูลส่วนตัว</span></a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="bidders">
@@ -69,7 +69,7 @@
       <hr class="sidebar-divider">
 
       <!-- Heading -->
-      
+
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
@@ -79,20 +79,20 @@
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-           
+
             <a class="collapse-item" href="buttons.html">การส่งมังคุด</a>
             <a class="collapse-item" href="cards.html">มูลค่ามังคุด</a>
           </div>
         </div>
       </li>
-     
-     
+
+
       <!-- Divider -->
       <hr class="sidebar-divider">
 
-      
 
-      
+
+
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
@@ -133,7 +133,7 @@
             <i class="fa fa-bars"></i>
           </button>
 
-          
+
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
@@ -158,7 +158,7 @@
               </div>
             </li>
 
-            
+
               <!-- Dropdown - Alerts -->
               <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
                 <h6 class="dropdown-header">
@@ -201,13 +201,13 @@
               </div>
             </li>
 
-            
+
               <!-- Dropdown - Messages -->
               <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
                 <h6 class="dropdown-header">
                   Message Center
                 </h6>
-                
+
                 <a class="dropdown-item d-flex align-items-center" href="#">
                   <div class="dropdown-list-image mr-3">
                     <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
@@ -278,11 +278,11 @@
         <!-- End of Topbar -->
         <div id="content-wrapper" class="d-flex flex-column">
 
-            
+
         @yield('content')
 
       <!-- Footer -->
-      
+
       <!-- End of Footer -->
 
     </div>
@@ -290,7 +290,7 @@
 
   </div>
   <!-- End of Page Wrapper -->
-  
+
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
@@ -331,11 +331,11 @@
   <!-- Page level custom scripts -->
   <!-- <script src="{{ asset ('js/demo/chart-area-demo.js') }}"></script> -->
   <!-- <script src="{{ asset ('js/demo/chart-pie-demo.js') }}"></script> -->
-  
+
   @yield('js')
 </body>
 
 </html>
 
 
-  
+

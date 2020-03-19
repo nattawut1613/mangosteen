@@ -14,13 +14,13 @@ class Submit extends Migration
     public function up()
     {
         Schema::create('submit', function (Blueprint $table) {
-            $table->increments('sub_id'); //รหัสการสรุปราคา
+            $table->increments('id'); //รหัสการสรุปราคา
             // $table->integer('b_id')->unsigned();
             // $table->foreign('b_id')->references('id')->on('bidder');
             // $table->integer('mang_id')->unsigned();
             // $table->foreign('mang_id')->references('id')->on('mangosteen');
             $table->integer('mang_id')->unsigned();
-            
+
             $table->decimal('sub_price',6,2);//ราคา
             $table->string('sub_around'); //รอบ
             $table->string('sub_amount'); //จำนวน
@@ -47,7 +47,7 @@ class Submit extends Migration
         {
             Schema::drop('submit');
             $table->dropForeign('submit_mang_id_foreign');
-            
+
         });
     }
 }

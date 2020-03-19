@@ -15,22 +15,22 @@ class SummaryMangos extends Migration
     {
         Schema::create('summary_mangos', function (Blueprint $table) {
             $table->increments('id'); //รหัสการสรุปราคา
-           
-            $table->integer('far_id')->unsigned();
+
+            $table->integer('users_id')->unsigned();
             $table->integer('mang_id')->unsigned();
             $table->string('sum_box'); //ลัง
             $table->decimal('sum_weight',6,2); //น้ำหนัก
             $table->string('sum_around'); //รอบ
             $table->date('sum_date'); //date
 
-            $table->foreign('far_id')
-                ->references('id')->on('farmer')
+            $table->foreign('users_id')
+                ->references('id')->on('users')
                 ->onDelete('cascade');
 
                 $table->foreign('mang_id')
                 ->references('id')->on('mangosteen')
                 ->onDelete('cascade');
-            
+
             });
     }
 
@@ -44,12 +44,12 @@ class SummaryMangos extends Migration
         Schema::table('summary_mangos', function($table)
         {
             Schema::drop('summary_mangos');
-            $table->dropForeign('summary_mangos_far_id_foreign');
+            $table->dropForeign('summary_mangos_user_fosreign');
             $table->dropForeign('mangosteen_mang_id_foreign');
-            
+
         });
 
-        
-        
+
+
     }
 }

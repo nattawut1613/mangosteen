@@ -26,7 +26,7 @@ class CenterPersonal extends Migration
 
 
             $table->timestamps();
-            });    
+            });
     }
 
     /**
@@ -36,6 +36,6 @@ class CenterPersonal extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('center_personal');
     }
 }
