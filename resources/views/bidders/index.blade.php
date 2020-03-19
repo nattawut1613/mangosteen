@@ -11,7 +11,7 @@
                     <table class="table table-striped">                        
                          <tr> 
                             <th>รหัสผู้ประมูล</th> 
-                            <th>คำนำหน้า</th>                         
+                                                  
                             <th>ชื่อผู้ประมูล</th>                            
                             <th>ที่อยู่ของผู้ประมูล</th>
                             <th>เบอร์โทร</th> 
@@ -25,7 +25,7 @@
                                                 
                           <tr>                            
                                <td>{{ $bidder->id }}</td>
-                               <td>{{ $bidder->b_per }}</td>                             
+                                                           
                                 <td>{{ $bidder->b_name }}</td> 
                                 <td>{{ $bidder->b_address }}</td> 
                                 <td>{{ $bidder->b_tel }}</td> 

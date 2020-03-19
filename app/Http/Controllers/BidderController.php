@@ -3,21 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\bidder;
+use App\bidder;//นําเอาโมเดล bidder เข้ามาใช้งาน 
 
 class BidderController extends Controller
 {
     public function index() {        
-         $bidder = Bidder::all(); 
-        //   $bidder = Bidder::orderBy('id','desc')->get();     
+        //  $bidder = bidder::all(); 
+          $bidder = bidder::get();   
 
-          $count = Bidder::count(); //นบัจํานวนแถวทงัหมด 
-          return view('bidders.index', [ 
+          $count = bidder::count(); //นบัจํานวนแถวทงัหมด 
+          return view('bidder.index', [ 
             'bidders' => $bidder, 
             'count' => $count 
             ]); // สง่ไปที views โฟลเดอร์ typebooks ไฟล์ index.blade.php 
-        }
-        public function edit($id)
+        } 
+        
+        public function destroy($id) {         
+            //bidder::find($id)->delete();         
+            Bidder::destroy($id);        
+             return back();     
+            }
+            public function edit($id)
                     {
                         $bidder = Bidder::find($id);
 
@@ -45,5 +51,5 @@ class BidderController extends Controller
                           $bidder->save();
                     
                           return redirect('/bidders')->with('success', 'bidder has been updated');
-        } 
+        }
 }

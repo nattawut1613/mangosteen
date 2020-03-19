@@ -60,8 +60,79 @@
                                         <strong>{{ $errors->first('username') }}</strong>
                                     </span>
                                 @endif
+                            </div></div>
+                        
+                        <div class="form-group row">
+                            <label for="address" class="col-md-4 col-form-label text-md-right">
+                                {{ __('ที่อยู่') }}
+                            </label>
+
+                            <div class="col-md-6">
+                                <input id="address" type="text"
+                                       class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}"
+                                       name="address" value="{{ old('address') }}" required>
+
+                                @if ($errors->has('address'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('address') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="tel" class="col-md-4 col-form-label text-md-right">
+                                {{ __('เบอร์โทร') }}
+                            </label>
+
+                            <div class="col-md-6">
+                                <input id="tel" type="text"
+                                       class="form-control{{ $errors->has('tel') ? ' is-invalid' : '' }}"
+                                       name="tel" value="{{ old('tel') }}" required>
+
+                                @if ($errors->has('tel'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('tel') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="account" class="col-md-4 col-form-label text-md-right">
+                                {{ __('ชื่อบัญชี') }}
+                            </label>
+
+                            <div class="col-md-6">
+                                <input id="account" type="text"
+                                       class="form-control{{ $errors->has('account') ? ' is-invalid' : '' }}"
+                                       name="account" value="{{ old('account') }}" required>
+
+                                @if ($errors->has('account'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('account') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="bank" class="col-md-4 col-form-label text-md-right">
+                                {{ __('ธนาคาร') }}
+                            </label>
+
+                            <div class="col-md-6">
+                                <input id="bank" type="text"
+                                       class="form-control{{ $errors->has('bank') ? ' is-invalid' : '' }}"
+                                       name="bank" value="{{ old('bank') }}" required>
+
+                                @if ($errors->has('bank'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('bank') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        
+
 
                         {{-- <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
