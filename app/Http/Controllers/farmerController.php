@@ -32,7 +32,11 @@ class FarmerController extends Controller
 
         public function sellmangosteen() {
           
-          return view('farmers.sellmangosteen');
+          $farmer = User::where('type','farmer')->get();
+
+          return view('farmers.sellmangosteen' , [
+            'farmers' => $farmer
+            ]);
           
         }
 

@@ -64,7 +64,11 @@ class BidderController extends Controller
 
         public function mangosteen() {
           
-            return view('bidders.mangosteen');
+          $bidder = User::where('type','bidder')->get();
+
+          return view('bidders.mangosteen', [
+            'bidders' => $bidder
+            ]);
             
           }
 }

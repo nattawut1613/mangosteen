@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
 <div class="container">
@@ -15,17 +15,16 @@
                                 {{ __('เลือกเกษตรกร') }}
                             </label>
 
+                            @foreach ( $farmers as $index )
+
                             <div class="col-md-6">
                                 <select  name="type">
-                                    <option value="farmer">เกรษตรกร</option>
-                                    <option value="bidder">ผู้ประมูล</option>
+                                    <option value="name"> {{ $index->per }} {{ $index->name }} {{ $index->lastname }} </option>
                                 </select>
-                                @if ($errors->has('type'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('type') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                            </div>       
+
+                            @endforeach
+
                         </div>
 
                         <div class="form-group row">
