@@ -61,9 +61,30 @@
                                 @enderror
                             </div>
                         </div>
+<<<<<<< HEAD
                         
                         
                         
+=======
+
+                        <div class="form-group row">
+                            <label for="username" class="col-md-4 col-form-label text-md-right">
+                                {{ __('รหัสผู้ใช้') }}
+                            </label>
+
+                            <div class="col-md-6">
+                                <input id="username" type="text"
+                                       class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}"
+                                       name="username" value="{{ old('username') }}" required>
+
+                                @if ($errors->has('username'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('username') }}</strong>
+                                    </span>
+                                @endif
+                            </div></div>
+
+>>>>>>> aa95353dd2edb5a00cbbd6e817ec6a2bd04745f6
                         <div class="form-group row">
                             <label for="address" class="col-md-4 col-form-label text-md-right">
                                 {{ __('ที่อยู่') }}
@@ -138,20 +159,33 @@
                             </label>
 
                             <div class="col-md-6">
+<<<<<<< HEAD
                                 <input id="username" type="text"
                                        class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}"
                                        name="username" value="{{ old('username') }}" required>
+=======
+                                <select id="type" name="type">
+                                    <option value="farmer">เกรษตรกร</option>
+                                    <option value="bidder">ผู้ประมูล</option>
+                                </select>
+>>>>>>> aa95353dd2edb5a00cbbd6e817ec6a2bd04745f6
 
                                 @if ($errors->has('username'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('username') }}</strong>
                                     </span>
                                 @endif
+<<<<<<< HEAD
                             </div></div>
                        
                        
+=======
+                            </div>
+                        </div>
+>>>>>>> aa95353dd2edb5a00cbbd6e817ec6a2bd04745f6
 
-                        
+
+
 
 
                         {{-- <div class="form-group row">

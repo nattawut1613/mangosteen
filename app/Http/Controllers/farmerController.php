@@ -33,20 +33,20 @@ class farmerController extends Controller
          public function update(Request $request, $id)
           {
                           $request->validate([
-                            'far_name'=>'required',
-                            'far_address'=> 'required',
-                            'far_tel' => 'required',
-                            'far_account' => 'required',
-                            'far_bank' => 'required',
+                            'name'=>'required',
+                            'address'=> 'required',
+                            'tel' => 'required',
+                            'account' => 'required',
+                            'bank' => 'required',
 
                           ]);
 
                           $farmer = User::find($id);
-                          $farmer->far_name = $request->get('far_name');
-                          $farmer->far_address = $request->get('far_address');
-                          $farmer->far_tel = $request->get('far_tel');
-                          $farmer->far_account = $request->get('far_account');
-                          $farmer->far_bank = $request->get('far_bank');
+                          $farmer->name = $request->get('name');
+                          $farmer->address = $request->get('address');
+                          $farmer->tel = $request->get('tel');
+                          $farmer->account = $request->get('account');
+                          $farmer->bank = $request->get('bank');
 
                           $farmer->save();
 
