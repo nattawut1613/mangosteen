@@ -30,7 +30,7 @@
     <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('home') }}">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -42,24 +42,24 @@
       @if( Auth::user()->type == "farmer" )
       <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-          <a class="nav-link" href="farmers">
+          <a class="nav-link" href="{{ url('farmers') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>ฟาม</span></a>
         </li>
       @elseif( Auth::user()->type == "bidder" )
         <li class="nav-item active">
-          <a class="nav-link" href="bidders">
+          <a class="nav-link" href="{{ url('bidders') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>ประมูล</span></a>
         </li>
       @else
         <li class="nav-item active">
-          <a class="nav-link" href="farmers">
+        <a class="nav-link" href="{{ url('farmers') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>มูลส่วนตัว</span></a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="bidders">
+          <a class="nav-link" href="{{ url('bidders') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>ข้อมูลประมูล</span></a>
         </li>

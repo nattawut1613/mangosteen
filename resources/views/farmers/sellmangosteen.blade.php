@@ -50,7 +50,7 @@
                             </label>
 
                             <div class="col-md-6">
-                                <input id="send_around" type="text" class="form-control @error('send_around') is-invalid @enderror"
+                                <input id="send_around" type="time" class="form-control @error('send_around') is-invalid @enderror"
                                 name="send_around" value="{{ old('send_around') }}" required autocomplete="send_around" autofocus>
 
                                 @error('send_around')
