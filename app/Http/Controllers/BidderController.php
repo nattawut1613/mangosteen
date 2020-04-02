@@ -9,8 +9,17 @@ use Illuminate\Support\Facades\Auth;
 class BidderController extends Controller
 {
     public function index() {
-        //  $bidder = Bidder::all();
+
+        if( Auth::user()->type == 'admin'){
+
+          $bidder = User::where('type','bidder')->get();
+
+        }
+        else{
+
           $bidder = User::where('type','bidder')->where('id', Auth::user()->id)->get();
+
+        }
 
         //   $count = User::count(); //นบัจํานวนแถวทงัหมด
           return view('bidders.index', [
@@ -52,4 +61,10 @@ class BidderController extends Controller
 
                           return redirect('/bidders')->with('success', 'bidder has been updated');
         }
+
+        public function mangosteen() {
+          
+            return view('bidders.mangosteen');
+            
+          }
 }
