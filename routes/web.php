@@ -1,6 +1,16 @@
 <?php
 
-Route::get('/farmers/sellmangosteen', 'FarmerController@sellmangosteen')->name('sellmangosteen');
+Route::get('/farmers/sendmangosteen', 'FarmerController@sendmangosteen')->name('sendmangosteen');
+
+Route::get('/farmers/senddetailmangosteen', 'FarmerController@senddetailmangosteen')->name('senddetailmangosteen');
+
+Route::post('famers/addstore', [
+    'as' => 'addstore',
+    'uses' => 'FarmerController@addstore'
+]);
+Route::resource('addstore', 'FarmerController' , ['except' => 'addstore']);
+
+
 
 Route::get('bidders/mangosteen', 'BidderController@mangosteen')->name('mangosteen');
 

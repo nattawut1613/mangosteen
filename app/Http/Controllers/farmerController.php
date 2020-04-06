@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;//นําเอาโมเดล farmer เข้ามาใช้งาน
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use App\Send_mangos;
 
 class FarmerController extends Controller
 {
@@ -30,15 +31,37 @@ class FarmerController extends Controller
 
         
 
-        public function sellmangosteen() {
+        public function sendmangosteen() {
           
           $farmer = User::where('type','farmer')->get();
 
-          return view('farmers.sellmangosteen' , [
+          return view('farmers.sendmangosteen' , [
             'farmers' => $farmer
             ]);
           
         }
+
+        public function senddetailmangosteen() {
+          
+          $farmer = User::where('type','farmer')->get();
+
+          return view('farmers.senddetailmangosteen' , [
+            'farmers' => $farmer
+            ]);
+          
+        }
+
+      
+        public function addstore(Request $request)
+            {
+              $addstore = new Send_mangos();
+              
+              $addstore->save();
+
+              return view('farmers.sizemangosteen');
+            }
+
+
 
 
 
@@ -47,6 +70,8 @@ class FarmerController extends Controller
             User::destroy($id);
              return back();
             }
+
+
             public function edit($id)
             {
               $farmer = User::find($id);
@@ -76,4 +101,68 @@ class FarmerController extends Controller
 
             return redirect('/farmers')->with('success', 'famer has been updated');
         }
+
+        public function addstore_rit(Request $request)
+    {
+        $workimg = new Work();
+        $workimg->user_id = $request->user_id;
+        $workimg->begin_date = $request->begin_date;
+        $workimg->end_date = $request->end_date;
+        $workimg->address_work = $request->address;
+        $workimg->status_bill = 'ค้างชำระ';
+        $workimg->status_work = 'รอดำเนินการ';
+        $workimg->save();
+        // return $workimg;
+
+        // ลูบวนเก็บค่าตาราง workimg_detail
+        foreach ($request->work as $works){
+            $workimg2 = new WorkDetail();
+            $workimg2->work_id = $workimg->id;
+            $workimg2->working = $works;
+            $workimg2->save();
+
+            if ($works == 'ตัดปาล์ม'){
+                $workimg2->kilo_palm = $request->kilo_palm;
+                $workimg2->save();
+            }
+            elseif($works == 'ใส่ปุ๋ย'){
+                $workimg2->unit_fertilizer = $request->unit_fertilizer;
+                $workimg2->save();
+            }
+            else{
+                $workimg2->farm_grass = $request->farm_grass;
+                $workimg2->save();
+            }
+        }
+
+        $details =  DB::table('work_details')->select('work_details.*')->where('work_id','like',$workimg->id)->get();
+        // return $details;
+        $sum = 0;
+        $avg1 = 0;
+        $avg2 = 0;
+        $sack = 0;
+        foreach( $details as $detail ){
+            if( $detail->working == "ตัดหญ้า"){
+                // return 1;
+                $grass = $detail->farm_grass ;
+                $sum = $grass * 500;
+            }
+            elseif($detail->working == "ตัดปาล์ม"){
+                // return 2;
+                $palm = $detail->kilo_palm ;
+                $sum2 = $palm * 3;
+                $avg1 = $sum2 * 0.3; //เงินที่เราได้จากการขาย 30 %
+                $avg2 = $sum2 - $avg1 ; //เงินที่ลูกค้าได้จากการขาย และ ลบส่วนที่ต้องแบ่งให้คนจ้าง 30 %
+            }
+            else{
+                // return 3;
+                $fertilizer = $detail->unit_fertilizer ;
+                $sum3 = $fertilizer / 50 ; // จำนวนต้น หาร กิโลต่อถุง -> หาจำนวนกระสอบ
+                $sack = $sum3 * 600;
+            }
+        }
+
+        return view('engage.addcreate',[ 'detail' => $details , 'price1' => $sum , 'price2' => $avg1 , 'price3' => $sack ]);
+        // return redirect()->route('addcreate');
+    }
 }

@@ -23,21 +23,22 @@ class SendMangos extends Migration
             // $table->foreign('mang_id')->references('id')->on('mangosteen');
 
 
-            $table->integer('mang_id')->unsigned();
+            //$table->integer('mang_id')->unsigned();
             $table->integer('users_id')->unsigned();
-            $table->decimal('send_weight',6,2);//ราคา
-            $table->string('send_around'); //รอบ
-            $table->string('send_amount'); //จำนวน
-            $table->string('send_result'); //ผลประมูล
+            //$table->decimal('send_weight',6,2);//ราคา
+            // $table->string('send_around'); //รอบ
+            // $table->string('send_amount'); //จำนวน
+            // $table->string('send_result'); //ผลประมูล
+            
             $table->dateTime('send_date'); //;date
 
             $table->foreign('users_id')
                 ->references('id')->on('users')
                 ->onDelete('cascade');
 
-                $table->foreign('mang_id')
-            ->references('id')->on('mangosteen')
-            ->onDelete('cascade');
+            //     $table->foreign('mang_id')
+            // ->references('id')->on('mangosteen')
+            // ->onDelete('cascade');
 
 
             $table->timestamps();
