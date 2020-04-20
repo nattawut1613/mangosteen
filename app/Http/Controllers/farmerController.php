@@ -7,6 +7,7 @@ use App\User;//นําเอาโมเดล farmer เข้ามาใช
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Send_mangos;
+use App\Send_mangos_detail;
 use DB;
 
 class FarmerController extends Controller
@@ -64,7 +65,9 @@ class FarmerController extends Controller
         $date = DB::table('send_mangos_detail')
             ->join('mangosteen', 'mangosteen.id', '=', 'mangosteen.id')
 
-            // ->join('users', 'farmer.id', '=', 'farmer.user_id')
+            // ->join('send_mangos', 'send_mangos.id', '=', 'send_mangos.send_mangos_id')
+
+             ->join('users', 'farmer.id', '=', 'farmer.user_id')
 
              ->select('mangosteen.*')
             //- ->where('users.id',Auth::user()->id )
@@ -91,15 +94,85 @@ class FarmerController extends Controller
               $send->send_around = $request->send_around;
               $send->save();
 
-              return view('farmers.senddetailmangosteen');
+              return redirect()->route('senddetailmangosteen');
             }
 
+
             public function addstoresenddetail(Request $request)
-            {
+            { 
+              // return $request;
+              $farmer = Send_mangos::get();
+              foreach($farmer as $item){
+              $data = $item->id;
+
+              }
+              // return $data;
+              
+              // return $request;
+
               $send = new Send_mangos_detail();
-              $send->users_id  = $request->get('user_id');
-              $send->send_amount = $request->send_amount;
-              $send->save();
+              
+                // $key->mang_id  = $request->get('user_id'); mango_id
+
+                foreach( $request->mango_id as $detail ){
+
+                  $send->send_mangos_id = $data;
+
+                  $send->mang_id = $detail; 
+
+                  foreach( $request->send_amount as $index ){
+                    
+                  
+                  // $send->save();
+
+                      // return $send;
+
+                    if( $detail == '1' ){
+                      // return $detail;
+                      $send->send_amount = $index;
+                       $send->save();
+                    }
+                    elseif( $detail == '2' ) {
+                      // return $detail;
+                      $send->send_amount = $index;
+                       $send->save();
+                    }
+                    elseif( $detail == '3' ) {
+                      // return $detail;
+                      $send->send_amount = $index;
+                       $send->save();
+                    }
+                    elseif( $detail == '4' ) {
+                      // return $detail;
+                      $send->send_amount = $index;
+                       $send->save();
+                    }
+                    elseif( $detail == '5' ) {
+                      // return $detail;
+                      $send->send_amount = $index;
+                       $send->save();
+                    }
+                    elseif( $detail == '6' ) {
+                      // return $detail;
+                      $send->send_amount = $index;
+                       $send->save();
+                    }
+                    else {
+                      // return $detail;
+                      $send->send_amount = $index;
+                       $send->save();
+                    }
+                    
+                  }
+                  $send->save();
+                  
+                }
+                
+                
+                // return $detail;
+
+              
+              
 
               return view('farmers.senddetailmangosteen');
             }
@@ -210,3 +283,6 @@ class FarmerController extends Controller
         // return redirect()->route('addcreate');
     }
 }
+
+
+

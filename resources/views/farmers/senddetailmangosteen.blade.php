@@ -12,7 +12,10 @@
                      <center>
                       <div class="card-body">
                        
-                    <form method="POST" action="{{ route('register') }}">
+{!! Form::open(['route' => 'addstoresenddetail', 'method' => 'post', 'files'=>true ]) !!}
+
+@csrf
+                    {{-- <form method="POST" action="{{ route('addstoresenddetail') }}"> --}}
                         <table>
                         <div class="card-header">{{ __('ตรวจสอบมังคุด') }}</div>
 
@@ -24,18 +27,16 @@
                           </tr>
                         <tr>
                         <td>1</td>
+                        <td>
+                            <input id="send_amount" type="checkbox"
+                                   class="form-control"
+                                   name="mango_id[]" value="1"></td>
                          <td>มันรวม</td>
                         
                         <td><div class="col-md-6">
                             <input id="send_amount" type="DECIMAL(10,2)"
-                                   class="form-control{{ $errors->has('send_amount') ? ' is-invalid' : '' }}"
-                                   name="send_amount" value="{{ old('send_amount') }}" required>
-
-                            @if ($errors->has('send_amount'))
-                                <span class="invalid-feedback">
-                                    <strong>{{ $errors->first('send_amount') }}</strong>
-                                </span>
-                            @endif
+                                   class="form-control"
+                                   name="send_amount[]">
                         </div></div></td>
                       </tr>
 
@@ -44,18 +45,16 @@
                     {{-- <div class="card-body">
                   <form method="POST" action="{{ route('register') }}"> --}}
                     <tr>
-                      <td>2</td>
+                    <td>2</td>
+                      <td>
+                        <input id="send_amount" type="checkbox"
+                               class="form-control"
+                               name="mango_id[]" value="2"></td>
                       <td>มันลาย</td>
                       <td><div class="col-md-6">
                           <input id="send_amount" type="DECIMAL(10,2)"
-                                 class="form-control{{ $errors->has('send_amount') ? ' is-invalid' : '' }}"
-                                 name="send_amount" value="{{ old('send_amount') }}" required>
-
-                          @if ($errors->has('send_amount'))
-                              <span class="invalid-feedback">
-                                  <strong>{{ $errors->first('send_amount') }}</strong>
-                              </span>
-                          @endif
+                                 class="form-control"
+                                 name="send_amount[]">
                       </div></div></td>
                     </tr>
 
@@ -64,17 +63,15 @@
               <form method="POST" action="{{ route('register') }}"> --}}
                 <tr>
                   <td>3</td>
+                  <td>
+                    <input id="send_amount" type="checkbox"
+                           class="form-control"
+                           name="mango_id[]" value="3"></td>
                   <td>กาก</td>
                   <td><div class="col-md-6">
                       <input id="send_amount" type="DECIMAL(10,2)"
-                             class="form-control{{ $errors->has('send_amount') ? ' is-invalid' : '' }}"
-                             name="send_amount" value="{{ old('send_amount') }}" required>
-
-                      @if ($errors->has('send_amount'))
-                          <span class="invalid-feedback">
-                              <strong>{{ $errors->first('send_amount') }}</strong>
-                          </span>
-                      @endif
+                             class="form-control"
+                             name="send_amount[]">
                   </div></div></td>
                 </tr>
             </tr>
@@ -82,17 +79,15 @@
           <form method="POST" action="{{ route('register') }}"> --}}
             <tr>
               <td>4</td>
+              <td>
+                <input id="send_amount" type="checkbox"
+                       class="form-control"
+                       name="mango_id[]" value="4"></td>
               <td>มันจิ๋ว</td>
               <td><div class="col-md-6">
                   <input id="send_amount" type="DECIMAL(10,2)"
-                         class="form-control{{ $errors->has('send_amount') ? ' is-invalid' : '' }}"
-                         name="send_amount" value="{{ old('send_amount') }}" required>
-
-                  @if ($errors->has('send_amount'))
-                      <span class="invalid-feedback">
-                          <strong>{{ $errors->first('send_amount') }}</strong>
-                      </span>
-                  @endif
+                         class="form-control"
+                         name="send_amount[]">
               </div></div></td>
             </tr>
          </tr>
@@ -100,17 +95,15 @@
          <form method="POST" action="{{ route('register') }}"> --}}
             <tr>
              <td>5</td>
+             <td>
+                <input id="send_amount" type="checkbox"
+                       class="form-control"
+                       name="mango_id[]" value="5" ></td>
               <td>ตกไซร์</td>
                  <td><div class="col-md-6">
               <input id="send_amount" type="DECIMAL(10,2)"
-                     class="form-control{{ $errors->has('send_amount') ? ' is-invalid' : '' }}"
-                     name="send_amount" value="{{ old('send_amount') }}" required>
-
-              @if ($errors->has('send_amount'))
-                  <span class="invalid-feedback">
-                      <strong>{{ $errors->first('send_amount') }}</strong>
-                  </span>
-              @endif
+                     class="form-control"
+                     name="send_amount[]">
           </div></div></td>
         </tr>
     </tr>
@@ -118,17 +111,15 @@
   <form method="POST" action="{{ route('register') }}"> --}}
     <tr>
       <td>6</td>
+      <td>
+        <input id="send_amount" type="checkbox"
+               class="form-control"
+               name="mango_id[]" value="6"></td>
       <td>ดำ</td>
       <td><div class="col-md-6">
           <input id="send_amount" type="DECIMAL(10,2)"
-                 class="form-control{{ $errors->has('send_amount') ? ' is-invalid' : '' }}"
-                 name="send_amount" value="{{ old('send_amount') }}" required>
-
-          @if ($errors->has('send_amount'))
-              <span class="invalid-feedback">
-                  <strong>{{ $errors->first('send_amount') }}</strong>
-              </span>
-          @endif
+                 class="form-control"
+                 name="send_amount[]">
       </div></div></td>
     </tr>
 </tr>
@@ -136,17 +127,16 @@
 <form method="POST" action="{{ route('register') }}"> --}}
 <tr>
   <td>7</td>
+  <td>
+    <input id="send_amount" type="checkbox"
+           class="form-control"
+           name="mango_id[]" value="7"></td>
   <td>แตก</td>
   <td><div class="col-md-6">
       <input id="send_amount" type="DECIMAL(10,2)"
-             class="form-control{{ $errors->has('send_amount') ? ' is-invalid' : '' }}"
-             name="send_amount" value="{{ old('send_amount') }}" required>
+             class="form-control"
+             name="send_amount[]">
 
-      @if ($errors->has('send_amount'))
-          <span class="invalid-feedback">
-              <strong>{{ $errors->first('send_amount') }}</strong>
-          </span>
-      @endif
   </div></div></td>
 </tr>
 
@@ -158,22 +148,24 @@
                     
                  
                 </body>
+
+                <div class="form-group row mb-0" >
+                    
+                        <button type="submit" class="btn btn-primary" style="
+                        border-left-width: 1px;
+                        margin-left: 25px;
+                    " >
+                            {{ __('ยืนยัน') }}
+                        </button>
+                    </div>
+                </div>
                         
-                    </form>
+{!! Form::close() !!}
                     
                 </div>
                 
             </center>
-            <div class="form-group row mb-0" >
-                <div class="col-md-6 offset-md-4" >
-                    <button type="submit" class="btn btn-primary" style="
-                    border-left-width: 1px;
-                    margin-left: 25px;
-                " >
-                        {{ __('ยืนยัน') }}
-                    </button>
-                </div>
-            </div>
+            
             
             </div>
         </div>

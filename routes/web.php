@@ -6,12 +6,18 @@ Route::get('/farmers/senddetailmangosteen', 'FarmerController@senddetailmangoste
 
 Route::get('/farmers/showfarmer', 'FarmerController@showfarmer')->name('showfarmer');
 
-Route::post('famers/addstoresend', [
+Route::post('/farmers/addstoresend', [
     'as' => 'addstoresend',
     'uses' => 'FarmerController@addstoresend'
 ]);
 Route::resource('addstoresend', 'FarmerController' , ['except' => 'addstoresend']);
 
+
+Route::post('/farmers/addstoresenddetail', [
+    'as' => 'addstoresenddetail',
+    'uses' => 'FarmerController@addstoresenddetail'
+]);
+Route::resource('addstoresenddetail', 'FarmerController' , ['except' => 'addstoresenddetail']);
 
 
 
