@@ -13,7 +13,7 @@
 <center>
     <div class="card uper" style="width: 502px;">
         <div class="card-header" >
-             เเก้ไขข้อมูลผู้ประมูล
+             เเก้ไขข้อมูลส่วนตัวผู้ประมูล
                 </div>
             <div class="card-body">
              @if ($errors->any())
@@ -28,11 +28,19 @@
       <form method="post" action="{{ route('bidders.update', $bidder->id) }}">
         @method('PATCH')
         @csrf
+
         <div class="form-group">
           <label for="name">ชื่อผู้ประมูล:</label>
-          
           <input type="text" class="form-control" name="name" style="  width: 426px;  height: 38px; " value="{{ $bidder->name }}" />
         </div>
+
+        <div class="form-group">
+          <label for="name">นามสกุล:</label>
+          <input type="text" class="form-control" name="lastname" style="  width: 426px;  height: 38px; " value="{{ $bidder->lastname }}" />
+        </div>
+
+       
+
         <div class="form-group">
           <label for="price">ที่อยู่ :</label>
           <input type="text" class="form-control" name="address" style="  width: 426px;  height: 38px; " value="{{ $bidder->address }}" />

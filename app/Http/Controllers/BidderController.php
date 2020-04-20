@@ -43,6 +43,7 @@ class BidderController extends Controller
           {
                           $request->validate([
                             'name'=>'required',
+                            'lastname'=>'required',
                             'address'=> 'required',
                             'tel' => 'required',
                             'account' => 'required',
@@ -52,6 +53,7 @@ class BidderController extends Controller
 
                           $bidder = User::find($id);
                           $bidder->name = $request->get('name');
+                          $bidder->lastname = $request->get('lastname');
                           $bidder->address = $request->get('address');
                           $bidder->tel = $request->get('tel');
                           $bidder->account = $request->get('account');

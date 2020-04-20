@@ -15,7 +15,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id'); //รหัสผู้ประมูล
-            $table->string('per')->nullable(); //คำนำหน้า
+           
             $table->string('name'); //ชื่อ
             $table->string('lastname');
             $table->string('address')->nullable();

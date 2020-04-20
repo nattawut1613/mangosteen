@@ -79,8 +79,11 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                   มังคุด
-                </div>
+                    กลุ่มแปลงใหญ่มังคุดเขาคิชฌกูฏ 
+                </div> <div class="content">
+                    <div class="title m-b-md">
+                        จันทบุรี
+                    </div>
 
                 
             </div>

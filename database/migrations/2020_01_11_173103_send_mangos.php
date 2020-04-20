@@ -5,7 +5,8 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class SendMangos extends Migration
-{
+{    
+    protected $table ='send_mangos';
     /**
      * Run the migrations.
      *
@@ -26,7 +27,7 @@ class SendMangos extends Migration
             //$table->integer('mang_id')->unsigned();
             $table->integer('users_id')->unsigned();
             //$table->decimal('send_weight',6,2);//ราคา
-            // $table->string('send_around'); //รอบ
+            $table->string('send_around'); //รอบ
             // $table->string('send_amount'); //จำนวน
             // $table->string('send_result'); //ผลประมูล
             
@@ -56,7 +57,7 @@ class SendMangos extends Migration
         {
             Schema::drop('send_mangos');
             $table->dropForeign('send_mangos_users_foreign');
-            $table->dropForeign('send_mangos_mang_id_foreign');
+            // $table->dropForeign('send_mangos_mang_id_foreign');
         });
 
     }

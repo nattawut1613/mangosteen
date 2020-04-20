@@ -4,11 +4,14 @@ Route::get('/farmers/sendmangosteen', 'FarmerController@sendmangosteen')->name('
 
 Route::get('/farmers/senddetailmangosteen', 'FarmerController@senddetailmangosteen')->name('senddetailmangosteen');
 
-Route::post('famers/addstore', [
-    'as' => 'addstore',
-    'uses' => 'FarmerController@addstore'
+Route::get('/farmers/showfarmer', 'FarmerController@showfarmer')->name('showfarmer');
+
+Route::post('famers/addstoresend', [
+    'as' => 'addstoresend',
+    'uses' => 'FarmerController@addstoresend'
 ]);
-Route::resource('addstore', 'FarmerController' , ['except' => 'addstore']);
+Route::resource('addstoresend', 'FarmerController' , ['except' => 'addstoresend']);
+
 
 
 

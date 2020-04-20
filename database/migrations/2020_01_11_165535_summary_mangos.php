@@ -27,7 +27,7 @@ class SummaryMangos extends Migration
                 ->references('id')->on('users')
                 ->onDelete('cascade');
 
-                $table->foreign('mang_id')
+            $table->foreign('mang_id')
                 ->references('id')->on('mangosteen')
                 ->onDelete('cascade');
 
@@ -45,7 +45,7 @@ class SummaryMangos extends Migration
         {
             Schema::drop('summary_mangos');
             $table->dropForeign('summary_mangos_user_fosreign');
-            $table->dropForeign('mangosteen_mang_id_foreign');
+            $table->dropForeign('summary_mangos_mang_id_foreign');
 
         });
 

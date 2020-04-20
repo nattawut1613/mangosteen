@@ -10,14 +10,15 @@
        
                         
                             
-                    <div class="panel-heading">แสดงข้อมลูส่วนตัว  </div> 
+                    <div class="panel-heading">ข้อมลูส่วนตัวเกษตรกร</div> 
  
                 <div class="panel-body"> 
  
                     <table class="table table-striped">                        
                          <tr> 
                             <th>รหัสเกษตรกร</th>                           
-                            <th>ชื่อเกษตรกร</th>                            
+                            <th>ชื่อเกษตรกร</th>  
+                            <th>นามสกุล</th>                         
                             <th>ที่อยู่ของเกษตรกร</th>
                             <th>เบอร์โทร</th> 
                             <th>เลขบัญชี</th>
@@ -33,6 +34,7 @@
                                     <td>{{ Auth::user()->name }}</td> 
                                 @else
                                     <td>{{ $farmer->name }}</td> 
+                                    <td>{{ $farmer->lastname }}</td> 
                                 @endif
                                 <td>{{ $farmer->address }}</td> 
                                 <td>{{ $farmer->tel }}</td> 

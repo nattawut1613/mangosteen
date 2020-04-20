@@ -44,24 +44,33 @@
         <li class="nav-item active">
           <a class="nav-link" href="{{ url('farmers') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>ฟาม</span></a>
+            <span>ข้อมูลส่วนตัวเกษตรกร</span></a>
         </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ Route('showfarmer') }}">
+              <i class="fas fa-fw fa-tachometer-alt"></i>
+              <span>ข้อมูลมังคุด</span></a>
+          </li>
+        
+
+
       @elseif( Auth::user()->type == "bidder" )
         <li class="nav-item active">
           <a class="nav-link" href="{{ url('bidders') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>ประมูล</span></a>
+            <span>ข้อมูลส่วนตัวผู้ประมูล</span></a>
         </li>
       @else
         <li class="nav-item active">
         <a class="nav-link" href="{{ url('farmers') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>มูลส่วนตัว</span></a>
+            <span>ข้อมูลเกษตรกร</span></a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="{{ url('bidders') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>ข้อมูลประมูล</span></a>
+            <span>ข้อมูลผู้ประมูล</span></a>
         </li>
       @endif
 
@@ -90,13 +99,7 @@
 
       @else
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>ตรวจสอบมังคุด</span>
-        </a>
-      </li>
-      
+     
       @endif
 
       <!-- Divider -->

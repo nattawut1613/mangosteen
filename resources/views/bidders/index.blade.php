@@ -4,14 +4,15 @@
 
     <div class="container">     
              
-        <div class="panel-heading">แสดงข้อมลูส่วนตัว  </div> 
+        <div class="panel-heading">ข้อมลูส่วนตัวผู้ประมูล  </div> 
  
                 <div class="panel-body"> 
  
                     <table class="table table-striped">                        
                          <tr> 
                             <th>รหัสผู้ประมูล</th>                                                   
-                            <th>ชื่อผู้ประมูล</th>                            
+                            <th>ชื่อผู้ประมูล</th> 
+                            <th>นามสกุล</th>                           
                             <th>ที่อยู่ของผู้ประมูล</th>
                             <th>เบอร์โทร</th> 
                             <th>เลขบัญชี</th>
@@ -25,6 +26,7 @@
                                <td>{{ $bidder->id }}</td>
                                                            
                                 <td>{{ $bidder->name }}</td> 
+                                <td>{{ $bidder->lastname }}</td>
                                 <td>{{ $bidder->address }}</td> 
                                 <td>{{ $bidder->tel }}</td> 
                                 <td>{{ $bidder->account }}</td> 

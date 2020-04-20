@@ -5,27 +5,36 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('หน้ารับมังคุดจากเกษตรกร') }}</div>
+                <div class="card-header">{{ __('ตรวจสอบมังคุด') }}</div>
 
                 
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('addstore') }}">
+                    <form method="POST" action="{{ route('addstoresend') }}">
                         @csrf
                         <div class="form-group row">
                             <label for="type" class="col-md-4 col-form-label text-md-right">
                                 {{ __('เลือกเกษตรกร') }}
                             </label>
 
-                            @foreach ( $farmers as $index )
+                           
 
                             <div class="col-md-6">
-                                <select  name="name">
-                                    <option value="name"> {{ $index->per }} {{ $index->name }} {{ $index->lastname }} </option>
+                               
+                                <select  name="user_id">
+                                    @foreach ( $farmers as $index )
+                                    <option value=" {{ $index->id }}" >  {{ $index->name }} {{ $index->lastname }} </option>
+                                    @endforeach
+
+                                    {{-- @foreach($farmers as $index)
+                                    <option value="{{$farmer->id }}">{{$farmer->nome}}</option>
+                                    @endforeach --}}
+
                                 </select>
+                                
                             </div>       
 
-                            @endforeach
+                           
 
                         </div>
 

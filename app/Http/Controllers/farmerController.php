@@ -7,6 +7,7 @@ use App\User;//นําเอาโมเดล farmer เข้ามาใช
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Send_mangos;
+use DB;
 
 class FarmerController extends Controller
 {
@@ -29,6 +30,9 @@ class FarmerController extends Controller
             ]); // สง่ไปที views โฟลเดอร์ typebooks ไฟล์ index.blade.php
         }
 
+
+
+        
         
 
         public function sendmangosteen() {
@@ -51,16 +55,54 @@ class FarmerController extends Controller
           
         }
 
-      
-        public function addstore(Request $request)
-            {
-              $addstore = new Send_mangos();
-              
-              $addstore->save();
+        public function showfarmer() {
+          
+          $farmer = User::where('type','farmer')->where('id', Auth::user()->id)->get();
 
-              return view('farmers.sizemangosteen');
+     
+        // return 1;
+        $date = DB::table('send_mangos_detail')
+            ->join('mangosteen', 'mangosteen.id', '=', 'mangosteen.id')
+
+            // ->join('users', 'farmer.id', '=', 'farmer.user_id')
+
+             ->select('mangosteen.*')
+            //- ->where('users.id',Auth::user()->id )
+            // ->orderByDesc('works.begin_date')
+            ->get();
+            // return $date;
+      
+            
+    
+
+          return view('farmers.showfarmer', [
+            'farmers' => $farmer
+            ]);
+            
+          }
+
+
+      
+        public function addstoresend(Request $request)
+            {
+              $send = new Send_mangos();
+              $send->users_id  = $request->get('user_id');
+              $send->send_date = $request->send_date;
+              $send->send_around = $request->send_around;
+              $send->save();
+
+              return view('farmers.senddetailmangosteen');
             }
 
+            public function addstoresenddetail(Request $request)
+            {
+              $send = new Send_mangos_detail();
+              $send->users_id  = $request->get('user_id');
+              $send->send_amount = $request->send_amount;
+              $send->save();
+
+              return view('farmers.senddetailmangosteen');
+            }
 
 
 
@@ -83,6 +125,7 @@ class FarmerController extends Controller
           {
             $request->validate([
               'name'=>'required',
+              
               'address'=> 'required',
               'tel' => 'required',
               'account' => 'required',
@@ -92,6 +135,7 @@ class FarmerController extends Controller
 
             $farmer = User::find($id);
             $farmer->name = $request->get('name');
+            $farmer->lastname = $request->get('lastname');
             $farmer->address = $request->get('address');
             $farmer->tel = $request->get('tel');
             $farmer->account = $request->get('account');

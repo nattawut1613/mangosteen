@@ -13,7 +13,7 @@
 <center>
     <div class="card uper" style="width: 502px;">
         <div class="card-header" >
-             เเก้ไขข้อมูลเกษตรกร
+             เเก้ไขข้อมูลส่วนตัวเกษตรกร
                 </div>
             <div class="card-body">
              @if ($errors->any())
@@ -30,9 +30,15 @@
         @csrf
         <div class="form-group">
           <label for="name">ชื่อเกษตรกร:</label>
-          
           <input type="text" class="form-control" name="name" style="  width: 426px;  height: 38px; " value="{{ $farmer->name }}" />
         </div>
+
+        <div class="form-group">
+          <label for="name">นามสกุล</label>
+          <input type="text" class="form-control" name="lastname" style="  width: 426px;  height: 38px; " value="{{ $farmer->lastname }}" />
+        </div>
+
+
         <div class="form-group">
           <label for="price">ที่อยู่ :</label>
           <input type="text" class="form-control" name="address" style="  width: 426px;  height: 38px; " value="{{ $farmer->address }}" />
