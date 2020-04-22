@@ -24,14 +24,18 @@
                             <th>รหัส</th>
                             <th>ไซร์</th>
                             <th>จำนวน (กิโลกรัม)</th>
-                          </tr>
+                        </tr>
+
+                        @foreach ($size as $item=>$index)
+                            
+                        
                         <tr>
-                        <td>1</td>
+                        <td>{{$item+1}}</td>
                         <td>
                             <input id="send_amount" type="checkbox"
                                    class="form-control"
-                                   name="mango_id[]" value="1"></td>
-                         <td>มันรวม</td>
+                                   name="mango_id[]" value="{{$index->id}}"></td>
+                         <td>{{$index->mang_size}}</td>
                         
                         <td><div class="col-md-6">
                             <input id="send_amount" type="DECIMAL(10,2)"
@@ -39,107 +43,7 @@
                                    name="send_amount[]">
                         </div></div></td>
                       </tr>
-
-                    </tr>
-
-                    {{-- <div class="card-body">
-                  <form method="POST" action="{{ route('register') }}"> --}}
-                    <tr>
-                    <td>2</td>
-                      <td>
-                        <input id="send_amount" type="checkbox"
-                               class="form-control"
-                               name="mango_id[]" value="2"></td>
-                      <td>มันลาย</td>
-                      <td><div class="col-md-6">
-                          <input id="send_amount" type="DECIMAL(10,2)"
-                                 class="form-control"
-                                 name="send_amount[]">
-                      </div></div></td>
-                    </tr>
-
-                </tr>
-                {{-- <div class="card-body">
-              <form method="POST" action="{{ route('register') }}"> --}}
-                <tr>
-                  <td>3</td>
-                  <td>
-                    <input id="send_amount" type="checkbox"
-                           class="form-control"
-                           name="mango_id[]" value="3"></td>
-                  <td>กาก</td>
-                  <td><div class="col-md-6">
-                      <input id="send_amount" type="DECIMAL(10,2)"
-                             class="form-control"
-                             name="send_amount[]">
-                  </div></div></td>
-                </tr>
-            </tr>
-            {{-- <div class="card-body">
-          <form method="POST" action="{{ route('register') }}"> --}}
-            <tr>
-              <td>4</td>
-              <td>
-                <input id="send_amount" type="checkbox"
-                       class="form-control"
-                       name="mango_id[]" value="4"></td>
-              <td>มันจิ๋ว</td>
-              <td><div class="col-md-6">
-                  <input id="send_amount" type="DECIMAL(10,2)"
-                         class="form-control"
-                         name="send_amount[]">
-              </div></div></td>
-            </tr>
-         </tr>
-            {{-- <div class="card-body">
-         <form method="POST" action="{{ route('register') }}"> --}}
-            <tr>
-             <td>5</td>
-             <td>
-                <input id="send_amount" type="checkbox"
-                       class="form-control"
-                       name="mango_id[]" value="5" ></td>
-              <td>ตกไซร์</td>
-                 <td><div class="col-md-6">
-              <input id="send_amount" type="DECIMAL(10,2)"
-                     class="form-control"
-                     name="send_amount[]">
-          </div></div></td>
-        </tr>
-    </tr>
-    {{-- <div class="card-body">
-  <form method="POST" action="{{ route('register') }}"> --}}
-    <tr>
-      <td>6</td>
-      <td>
-        <input id="send_amount" type="checkbox"
-               class="form-control"
-               name="mango_id[]" value="6"></td>
-      <td>ดำ</td>
-      <td><div class="col-md-6">
-          <input id="send_amount" type="DECIMAL(10,2)"
-                 class="form-control"
-                 name="send_amount[]">
-      </div></div></td>
-    </tr>
-</tr>
-{{-- <div class="card-body">
-<form method="POST" action="{{ route('register') }}"> --}}
-<tr>
-  <td>7</td>
-  <td>
-    <input id="send_amount" type="checkbox"
-           class="form-control"
-           name="mango_id[]" value="7"></td>
-  <td>แตก</td>
-  <td><div class="col-md-6">
-      <input id="send_amount" type="DECIMAL(10,2)"
-             class="form-control"
-             name="send_amount[]">
-
-  </div></div></td>
-</tr>
-
+                      @endforeach
                     </table>
                    
                     
