@@ -9,11 +9,12 @@ use App\Http\Controllers\Controller;
 use App\Send_mangos;
 use App\Send_mangos_detail;
 use DB;
+use LengthException;
 
 class FarmerController extends Controller
 {
     public function index() {
-        
+
       if( Auth::user()->type == 'admin'){
 
         $farmer = User::where('type','farmer')->get();
@@ -33,21 +34,21 @@ class FarmerController extends Controller
 
 
 
-        
-        
+
+
 
         public function sendmangosteen() {
-          
+
           $farmer = User::where('type','farmer')->get();
 
           return view('farmers.sendmangosteen' , [
             'farmers' => $farmer
             ]);
-          
+
         }
 
         public function senddetailmangosteen() {
-          
+
           $farmer = User::where('type','farmer')->get();
           $size = DB::table('mangosteen')->select('mangosteen.*')->get();
 
@@ -56,14 +57,14 @@ class FarmerController extends Controller
             'farmers' => $farmer,
             'size' => $size
             ]);
-          
+
         }
 
         public function showfarmer() {
-          
+
           $farmer = User::where('type','farmer')->where('id', Auth::user()->id)->get();
 
-     
+
         // return 1;
         $date = DB::table('send_mangos_detail')
             ->join('mangosteen', 'mangosteen.id', '=', 'mangosteen.id')
@@ -77,18 +78,18 @@ class FarmerController extends Controller
             // ->orderByDesc('works.begin_date')
             ->get();
             // return $date;
-      
-            
-    
+
+
+
 
           return view('farmers.showfarmer', [
             'farmers' => $farmer
             ]);
-            
+
           }
 
 
-      
+
         public function addstoresend(Request $request)
             {
               $send = new Send_mangos();
@@ -102,7 +103,7 @@ class FarmerController extends Controller
 
 
             public function addstoresenddetail(Request $request)
-            { 
+            {
               // return $request;
               $farmer = Send_mangos::get();
               foreach($farmer as $item){
@@ -110,106 +111,36 @@ class FarmerController extends Controller
               $data = $item->id;
 
               }
-              // return $data;
-              
-              // return $request;
 
-              
-                // $key->mang_id  = $request->get('user_id'); mango_id
-                
+                foreach( $request->mango_id as $detail){
+                    // return $detail;
 
-                foreach( $request->mango_id as $detail ){
-                  $send = new Send_mangos_detail();
+                  $arrlength=count($request["mango_id"]);
 
-                  $send->send_mangos_id = $data;
+                  //echo $arrlength;
+                    for($i=0;$i<$arrlength;$i++)
+                    {
+                        $sum=$request["mango_id"][$i];
+                        $num=$request["send_amount"][$sum-1];
+                        $send = new Send_mangos_detail();
+                        $send->send_mangos_id = $data;
+                        $send->mang_id = $sum;
+                        $send->send_amount = $num;
+                        $send->save();
 
-                  $send->mang_id = $detail; 
-
-                  $send->save();
-                 
-
-                  if( $detail == '1' ){
-                    foreach( $request->send_amount as $index ){
-                    
-                    $send->send_amount = $index;
-                    $send->save();
-                    
                     }
 
-                  }
-                  elseif( $detail == '2' ) {
-                    
-                    foreach( $request->send_amount as $index ){
-                    $send->send_amount = $index;
-                     $send->save();
-                    //  return $send;
-                    //  return $detail;
-                    }
-                    
-                     
-                  }
-                  elseif( $detail == '3' ) {
 
-                    foreach( $request->send_amount as $index ){
-                    $send->send_amount = $index;
-                     $send->save();
-                    //  return $send;
-                    //  return $detail;
-                    }
-                    
-                  }
-                  elseif( $detail == '4' ) {
-                    
-                    foreach( $request->send_amount as $index ){
-                    $send->send_amount = $index;
-                     $send->save();
-                     
-                    //  return $detail;
-                    }
-                    
-                  }
-                  elseif( $detail == '5' ) {
-                    foreach( $request->send_amount as $index ){
-                   
-                    $send->send_amount = $index;
-                     $send->save();
-                     
-                    //  return $detail;
-                    }
-                   
-                  }
-                  elseif( $detail == '6' ) {
-                    foreach( $request->send_amount as $index ){
-                    $send->send_amount = $index;
-                     $send->save();
-                    //  return $send;
-                    //  return $detail;
-                    }
-                    
-                  }
-                  else {
-                   
 
-                    foreach( $request->send_amount as $index ){
-                      
-                    $send->send_amount = $index;
-                    $send->save();
 
-                    
-                     
-                    }
-                   
-                  
+                  // $send->mang_id = $detail;
 
-                  }
-                  
-                 
-                 
-                   
-                    
-                    
-                  
+
+                  return redirect()->route('sendmangosteen');
+
                 }
+
+
               return redirect()->route('sendmangosteen');
             }
 
@@ -234,7 +165,7 @@ class FarmerController extends Controller
           {
             $request->validate([
               'name'=>'required',
-              
+
               'address'=> 'required',
               'tel' => 'required',
               'account' => 'required',
