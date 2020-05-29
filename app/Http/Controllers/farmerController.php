@@ -74,7 +74,7 @@ class FarmerController extends Controller
 
              ->join('users', 'users.id', '=', 'send_mangos.users_id')
 
-             ->select('mangosteen.*')
+             ->select('*')
             //- ->where('users.id',Auth::user()->id )
             // ->orderByDesc('works.begin_date')
             ->get();
