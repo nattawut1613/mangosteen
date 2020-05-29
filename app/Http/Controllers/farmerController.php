@@ -66,12 +66,13 @@ class FarmerController extends Controller
 
 
         // return 1;
-        $date = DB::table('send_mangos_detail')
-            ->join('mangosteen', 'mangosteen.id', '=', 'mangosteen.id')
+        $date = DB::table('send_mangos')
 
-            // ->join('send_mangos', 'send_mangos.id', '=', 'send_mangos.send_mangos_id')
+             ->join('send_mangos_detail' , 'send_mangos.id', '=', 'send_mangos_detail.send_mangos_id')
 
-             ->join('users', 'farmer.id', '=', 'farmer.user_id')
+             ->join('mangosteen', 'mangosteen.id', '=', 'send_mangos_detail.mang_id')
+
+             ->join('users', 'users.id', '=', 'send_mangos.users_id')
 
              ->select('mangosteen.*')
             //- ->where('users.id',Auth::user()->id )
