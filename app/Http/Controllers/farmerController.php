@@ -10,6 +10,7 @@ use App\Send_mangos;
 use App\Send_mangos_detail;
 use DB;
 use LengthException;
+use Mangosteen;
 
 class FarmerController extends Controller
 {
@@ -74,17 +75,16 @@ class FarmerController extends Controller
 
              ->join('users', 'users.id', '=', 'send_mangos.users_id')
 
-             ->select('*')
-            //- ->where('users.id',Auth::user()->id )
+             ->select('send_mangos_detail.*' , 'users.name' , 'users.lastname' , 'mangosteen.mang_size' )
+             ->where('users.id',Auth::user()->id )
             // ->orderByDesc('works.begin_date')
             ->get();
-            // return $date;
-
-
+            //  return $date;
 
 
           return view('farmers.showfarmer', [
-            'farmers' => $farmer
+            'farmers' => $farmer,
+
             ]);
 
           }

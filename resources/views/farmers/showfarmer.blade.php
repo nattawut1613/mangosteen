@@ -23,6 +23,8 @@
                             <th>จำนวน (กิโลกรัม)</th>
                           </tr>
                         <tr>
+
+
                             @foreach ($farmers as $farmer )
 
                             <tr>
@@ -32,9 +34,10 @@
                                   @else
                                       <td>{{ $farmer->name }}</td>
                                       <td>{{ $farmer->lastname }}</td>
-                                      <td>{{ $farmer->mang_id}}</td>
+                                      <td>{{ $farmer->mang_size}}</td>
                                       <td>{{ $farmer->send_amount}}</td>
                                   @endif
+
 
 
                               </tr>
