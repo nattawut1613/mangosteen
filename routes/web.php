@@ -19,6 +19,11 @@ Route::post('/farmers/addstoresenddetail', [
 ]);
 Route::resource('addstoresenddetail', 'FarmerController' , ['except' => 'addstoresenddetail']);
 
+Route::post('/farmers/register', [
+    'as' => 'register',
+    'uses' => 'FarmerController@register'
+]);
+Route::resource('register', 'FarmerController' , ['except' => 'register']);
 
 
 Route::get('bidders/mangosteen', 'BidderController@mangosteen')->name('mangosteen');

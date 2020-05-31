@@ -21,22 +21,21 @@
                             <th>นามสกุล</th>
                             <th>ไซร์</th>
                             <th>จำนวน (กิโลกรัม)</th>
+
                           </tr>
                         <tr>
 
 
-                            @foreach ($farmers as $farmer )
+                            @foreach ($date as $index )
 
                             <tr>
 
-                                 @if( $farmer->id == null || $farmer->id == '' )
-                                      <td>{{ Auth::user()->name }}</td>
-                                  @else
-                                      <td>{{ $farmer->name }}</td>
-                                      <td>{{ $farmer->lastname }}</td>
-                                      <td>{{ $farmer->mang_size}}</td>
-                                      <td>{{ $farmer->send_amount}}</td>
-                                  @endif
+                                      <td>{{ $index->name }}</td>
+                                      <td>{{ $index->lastname }}</td>
+                                      <td>{{ $index->mang_size}}</td>
+                                      <td>{{ $index->send_amount}}</td>
+
+
 
 
 

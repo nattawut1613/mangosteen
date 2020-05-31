@@ -48,6 +48,16 @@ class FarmerController extends Controller
 
         }
 
+        public function register() {
+
+            $farmer = User::where('type','admin')->get();
+
+            return view('farmers.register' , [
+              'farmers' => $farmer
+              ]);
+
+          }
+
         public function senddetailmangosteen() {
 
           $farmer = User::where('type','farmer')->get();
@@ -63,27 +73,31 @@ class FarmerController extends Controller
 
         public function showfarmer() {
 
-          $farmer = User::where('type','farmer')->where('id', Auth::user()->id)->get();
+          $farmer = User::where('type','farmer')->get();
 
 
         // return 1;
         $date = DB::table('send_mangos')
 
+             ->join('users', 'users.id', '=', 'send_mangos.users_id')
+
              ->join('send_mangos_detail' , 'send_mangos.id', '=', 'send_mangos_detail.send_mangos_id')
 
              ->join('mangosteen', 'mangosteen.id', '=', 'send_mangos_detail.mang_id')
 
-             ->join('users', 'users.id', '=', 'send_mangos.users_id')
 
-             ->select('send_mangos_detail.*' , 'users.name' , 'users.lastname' , 'mangosteen.mang_size' )
+
+             ->select('users.name' , 'users.lastname' ,'send_mangos_detail.send_amount' ,  'mangosteen.mang_size' )
              ->where('users.id',Auth::user()->id )
             // ->orderByDesc('works.begin_date')
             ->get();
-            //  return $date;
+            //   return $date;
 
 
           return view('farmers.showfarmer', [
+
             'farmers' => $farmer,
+            'date' =>$date
 
             ]);
 

@@ -83,6 +83,12 @@
       <!-- Nav Item - Pages Collapse Menu -->
       @if( Auth::user()->type == "admin" )
 
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ Route('register') }}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>ลงทะเบียน</span></a>
+        </li>
+
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
