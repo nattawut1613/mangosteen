@@ -19,14 +19,31 @@ Route::post('/farmers/addstoresenddetail', [
 ]);
 Route::resource('addstoresenddetail', 'FarmerController' , ['except' => 'addstoresenddetail']);
 
+
+
 Route::post('/farmers/register', [
     'as' => 'register',
     'uses' => 'FarmerController@register'
 ]);
 Route::resource('register', 'FarmerController' , ['except' => 'register']);
 
+Route::post('/bidders/auction', [
+    'as' => 'auction',
+    'uses' => 'BidderController@auction'
+]);
+Route::resource('auction', 'BidderController' , ['except' => 'auction']);
 
-Route::get('bidders/mangosteen', 'BidderController@mangosteen')->name('mangosteen');
+// Route::post('/bidders/mangosteenprice', [
+//     'as' => 'mangosteenprice',
+//     'uses' => 'BidderController@mangosteenprice'
+// ]);
+// Route::resource('mangosteenprice', 'BidderController' , ['except' => 'mangosteenprice']);
+
+
+
+Route::get('bidders/mangosteenprice', 'BidderController@mangosteenprice')->name('mangosteenprice');
+
+
 
 Route::get('/', function () {
     return view('welcome');

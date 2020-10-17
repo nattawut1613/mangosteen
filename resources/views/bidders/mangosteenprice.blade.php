@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.cus')
 
 @section('content')
 <div class="container">
@@ -14,12 +14,12 @@
                         @csrf
                         <div class="form-group row">
                             <label for="type" class="col-md-4 col-form-label text-md-right">
-                                {{ __('เลือกผู้ประมูล') }}
+                                {{ __('เลือกขนาด') }}
                             </label>
                         <div class="col-md-6">
                              <select  name="user_id">
-                            @foreach ( $bidders as $index )
-                                <option value=" {{ $index->per }}" > {{ $index->name }} {{ $index->lastname }} </option>
+                            @foreach ( $size as $index )
+                                <option value=" {{ $index->id }}" > {{ $index->mang_size }} </option>
                                  @endforeach
                                 </select>
                             </div>

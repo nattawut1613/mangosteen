@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;//นําเอาโมเดล bidder เข้ามาใช้งาน
 use Illuminate\Support\Facades\Auth;
+use DB;
+
 
 class BidderController extends Controller
 {
@@ -64,13 +66,29 @@ class BidderController extends Controller
                           return redirect('/bidders')->with('success', 'bidder has been updated');
         }
 
-        public function mangosteen() {
+        public function mangosteenprice() {
           
           $bidder = User::where('type','bidder')->get();
+          $size = DB::table('mangosteen')->select('mangosteen.*')->get();
 
-          return view('bidders.mangosteen', [
-            'bidders' => $bidder
+          return view('bidders.mangosteenprice', [
+            'bidders' => $bidder,
+            'size'=>$size
             ]);
             
           }
+
+          public function auction() {
+          
+            $bidder = User::where('type','bidder')->get();
+            $size = DB::table('mangosteen')->select('mangosteen.*')->get();
+  
+            return view('bidders.auction', [
+              'bidders' => $bidder,
+              'size'=>$size
+              ]);
+              
+            }
+
+
 }
