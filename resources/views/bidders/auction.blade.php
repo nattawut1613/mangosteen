@@ -75,7 +75,7 @@
     </div>
     
   </div>
-  <button type="submit">ประมูล</button>
+  <button type="submit">1ประมูล</button>
   <!-- End of Page Wrapper -->
 
   @endsection
